@@ -8,6 +8,7 @@ setup(
         'Flask',
         'selenium',
         'gunicorn',
+        'webdriver-manager'
     ],
     entry_points={
         'console_scripts': [
