@@ -10,11 +10,8 @@ def get_webdriver():
     chrome_options.add_argument("--headless")  # Run headless (no UI)
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--window-size=1920x1080")  # Set a large viewport
 
-    # Create WebDriver instance
-    service = Service()
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
 def capture_webpage_as_base64(url):
