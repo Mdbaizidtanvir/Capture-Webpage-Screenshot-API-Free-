@@ -1,5 +1,9 @@
 Flask==2.1.1
 selenium==4.4.3
 gunicorn==20.1.0
+<<<<<<< HEAD
 webdriver-manager
 werkzeug==2.0.3
+=======
+werkzeug==2.0.3
+>>>>>>> ead49d192dbab0630ad96816f4e40de45d6f5fb0
