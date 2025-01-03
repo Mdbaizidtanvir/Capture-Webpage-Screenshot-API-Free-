@@ -3,17 +3,15 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import base64
 import os
+from webdriver_manager.chrome import ChromeDriverManager
 
 def get_webdriver():
     chrome_options = Options()
     chrome_options.add_argument("--headless")  # Run headless (no UI)
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--window-size=1920x1080")  # Set a large viewport
 
-    # Create WebDriver instance
-    service = Service()
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
 def capture_webpage_as_base64(url):
