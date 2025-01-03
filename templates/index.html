@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Screenshot Capture API</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Free API to capture webpage screenshots and return them as Base64-encoded images. Easily integrate with Python or JavaScript."
+    />
+    <meta
+      name="keywords"
+      content="API, screenshot, webpage screenshot, Base64, free API, capture webpage, screenshot API, Python API, JavaScript API"
+    />
+    <meta name="author" content="Mdbaizidtanvir" />
+    <meta property="og:title" content="Web Screenshot Capture API" />
+    <meta
+      property="og:description"
+      content="Capture full-page screenshots of webpages and get the image as a Base64-encoded string. Free API service with easy integration."
+    />
+    <meta
+      property="og:image"
+      content="https://example.com/screenshot-thumbnail.jpg"
+    />
+    <meta property="og:url" content="https://your-deployed-url.com" />
+    <meta name="twitter:title" content="Web Screenshot Capture API" />
+    <meta
+      name="twitter:description"
+      content="Capture full-page screenshots of webpages and get the image as a Base64-encoded string. Free API service with easy integration."
+    />
+    <meta
+      name="twitter:image"
+      content="https://example.com/screenshot-thumbnail.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Main Container -->
+    <div class="max-w-3xl mx-auto p-6">
+      <!-- Header Section -->
+      <h1 class="text-3xl font-bold text-center text-blue-600 mb-6">
+        Capture Webpage Screenshot API
+      </h1>
+      <p class="text-lg text-gray-700 text-center mb-6">
+        This is a free API that allows you to capture a full-page screenshot of
+        a webpage and get the image as a Base64-encoded string.
+      </p>
+
+      <!-- API Documentation Section -->
+      <section class="bg-white p-6 rounded shadow-md mb-8">
+        <h2 class="text-2xl font-semibold text-blue-600 mb-4">
+          API Documentation
+        </h2>
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Endpoint</h3>
+        <p class="mb-4 text-gray-600">
+          <code class="bg-gray-200 p-2 rounded">POST /capture-webpage</code>
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Description</h3>
+        <p class="mb-4 text-gray-600">
+          This API endpoint accepts a POST request with a JSON payload
+          containing a URL. It returns a full-page screenshot of the webpage at
+          the provided URL as a Base64-encoded string.
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Request Parameters
+        </h3>
+        <p class="mb-4 text-gray-600">
+          The request should contain the following JSON parameter:
+        </p>
+        <pre class="bg-gray-100 p-4 rounded">
+{
+    "url": "https://example.com"
+}
+            </pre
+        >
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          Response Format
+        </h3>
+        <p class="mb-4 text-gray-600">
+          The response will be a JSON object with the Base64-encoded screenshot
+          image:
+        </p>
+        <pre class="bg-gray-100 p-4 rounded">
+{
+    "base64_image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+}
+            </pre
+        >
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Errors</h3>
+        <p class="mb-4 text-gray-600">
+          If the URL parameter is missing or invalid, the response will contain
+          an error message:
+        </p>
+        <pre class="bg-gray-100 p-4 rounded">
+{
+    "error": "Invalid JSON or missing 'url' parameter"
+}
+            </pre
+        >
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Free Service</h3>
+        <p class="mb-4 text-gray-600">
+          This API is completely free! You can use it to capture webpage
+          screenshots without any cost.
+        </p>
+      </section>
+
+      <!-- Form to Capture Screenshot -->
+      <form id="capture-form" class="bg-white shadow-md rounded p-4 mb-6">
+        <label for="url" class="block text-lg font-medium mb-2"
+          >Enter URL:</label
+        >
+        <input
+          type="url"
+          id="url"
+          name="url"
+          placeholder="https://example.com"
+          required
+          class="w-full p-3 border border-gray-300 rounded mb-4"
+        />
+        <button
+          type="submit"
+          class="w-full p-3 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        >
+          Capture Screenshot
+        </button>
+      </form>
+
+      <!-- Screenshot Display Section -->
+      <h2 class="text-xl font-semibold mb-4">Captured Screenshot</h2>
+      <div id="screenshot-container" class="text-center">
+        <!-- The captured screenshot will be displayed here -->
+      </div>
+
+      <section class="bg-white p-6 rounded shadow-md mt-8">
+        <h2 class="text-2xl font-semibold text-blue-600 mb-4">How to Use</h2>
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Python Example</h3>
+        <p class="mb-4 text-gray-600">
+          You can use the Python `requests` library to interact with the API.
+          Here is an example:
+        </p>
+        <pre class="bg-gray-100 p-4 rounded">
+import requests
+
+url = 'https://your-deployed-url.com/capture-webpage'
+data = {
+    'url': 'https://example.com'
+}
+
+response = requests.post(url, json=data)
+
+if response.status_code == 200:
+    print('Base64 Image:', response.json()['base64_image'])
+else:
+    print('Error:', response.json()['error'])
+            </pre
+        >
+
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">
+          JavaScript Example
+        </h3>
+        <p class="mb-4 text-gray-600">
+          Here is how you can call the API using JavaScript (fetch):
+        </p>
+        <pre class="bg-gray-100 p-4 rounded">
+const url = 'https://your-deployed-url.com/capture-webpage';
+const data = {
+    url: 'https://example.com'
+};
+
+fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+})
+.then(response => response.json())
+.then(data => {
+    if (data.base64_image) {
+        console.log('Base64 Image:', data.base64_image);
+    } else {
+        console.error('Error:', data.error);
+    }
+})
+.catch(error => console.error('Error:', error));
+            </pre
+        >
+      </section>
+    </div>
+
+    <script>
+      // Handle form submission
+      document
+        .getElementById("capture-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const url = document.getElementById("url").value;
+
+          fetch("/capture-webpage", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ url: url }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.base64_image) {
+                const img = document.createElement("img");
+                img.src = data.base64_image;
+                img.alt = "Screenshot";
+                img.classList.add(
+                  "mx-auto",
+                  "rounded",
+                  "shadow-lg",
+                  "mb-4",
+                  "max-w-full"
+                );
+                document.getElementById("screenshot-container").innerHTML = "";
+                document
+                  .getElementById("screenshot-container")
+                  .appendChild(img);
+              } else {
+                alert("Error capturing screenshot");
+              }
+            })
+            .catch((error) => {
+              alert("Error: " + error);
+            });
+        });
+    </script>
+
+    <div class="absolute top-0 right-2">
+      <a
+        href="https://github.com/Mdbaizidtanvir"
+        target="_blank"
+        class="inline-block py-2 px-6 bg-green-600 text-white font-semibold rounded hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+      >
+        Credits: Md Baizid Tanvir
+      </a>
+    </div>
+  </body>
+</html>
